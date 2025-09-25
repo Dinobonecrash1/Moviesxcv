@@ -46,7 +46,7 @@ CHANNELS = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('CHAN
 
 REQ_CHANNEL = int(environ.get('REQ_CHANNEL', '-100'))  # Request channel id (make sure bot is admin)
 MOVIE_GROUP_USERNAME = environ.get('MOVIE_GROUP_USERNAME', '')  # Movie group username without @
-ADMIN_USRNM = environ.get('MOVIE_GROUP_USERNAME', 'LazyDeveloper')  # ADMIN username without @
+ADMIN_USRNM = environ.get('ADMIN_USRNM', 'LazyDeveloper')  # ADMIN username without @
 
 LOG_CHANNEL = int(environ.get('LOG_CHANNEL', '-100'))  # Log channel id (make sure bot is admin)
 BIN_CHANNEL = int(environ.get('BIN_CHANNEL', '-100'))  # Bin channel id (make sure bot is admin)
