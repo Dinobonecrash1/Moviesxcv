@@ -800,7 +800,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         link = await client.create_chat_invite_link(int(REQST_CHANNEL))
     except:
         pass
-    lazydata = query.data
+    
     if query.data == "close_data":
         try:
             user = query.message.reply_to_message.from_user.id
@@ -1035,7 +1035,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
 # ////////////////////////////////////////////////
 
     
-    elif lazydata.startswith("notify_user_not_avail"):
+    elif query.data.startswith("notify_user_not_avail"):
         _, user_id, movie = data.split(":")
         # Send message to user
         try:
@@ -1060,7 +1060,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await query.answer(f"☣something went wrong sweetheart\n\n{e}", show_alert=True)
             return
         
-    elif lazydata.startswith("notify_user_alrupl"):
+    elif query.data.startswith("notify_user_alrupl"):
         _, user_id, movie = data.split(":")
         # Send message to user
         try:
@@ -1085,7 +1085,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await query.answer(f"☣something went wrong baby\n\n{e}", show_alert=True)
             return
         
-    elif lazydata.startswith("notify_userupl"):
+    elif query.data.startswith("notify_userupl"):
         _, user_id, movie = data.split(":")
         # Send message to user
         try:
@@ -1110,7 +1110,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await query.answer(f"☣something went wrong sona\n\n{e}", show_alert=True)
             return
         
-    elif lazydata.startswith("notify_user_req_rejected"):
+    elif query.data.startswith("notify_user_req_rejected"):
         _, user_id, movie = data.split(":")
         # Send message to user
         try:
@@ -1135,7 +1135,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await query.answer(f"☣something went wrong darling\n\n{e}", show_alert=True)
             return
         
-    elif lazydata.startswith("notify_user_spelling_error"):
+    elif query.data.startswith("notify_user_spelling_error"):
         _, user_id, movie = data.split(":")
         # Send message to user
         try:
@@ -1160,7 +1160,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await query.answer(f"☣something went wrong sweetie\n\n{e}", show_alert=True)
             return
     
-    elif lazydata.startswith("notify_user_custom"):
+    elif query.data.startswith("notify_user_custom"):
         _, user_id, movie = data.split(":")
         # Send message to user
         try:
@@ -1185,7 +1185,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await query.answer(f"☣something went wrong sweetie\n\n{e}", show_alert=True)
             return
     
-    elif lazydata.startswith("notify_user_req_rcvd"):
+    elif query.data.startswith("notify_user_req_rcvd"):
         _, user_id, movie = data.split(":")
         # Send message to user
         try:
