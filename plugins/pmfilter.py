@@ -800,22 +800,21 @@ async def cb_handler(client: Client, query: CallbackQuery):
         link = await client.create_chat_invite_link(int(REQST_CHANNEL))
     except:
         pass
-    
-    # if query.data == "close_data":
-    #     try:
-    #         user = query.message.reply_to_message.from_user.id
-    #     except:
-    #         user = query.from_user.id
-    #     if int(user) != 0 and query.from_user.id != int(user):
-    #         return await query.answer(script.NT_ALRT_TXT, show_alert=True)
-    #     # await query.answer("ᴛʜᴀɴᴋs ꜰᴏʀ ᴄʟᴏsᴇ 🙈")
-    #     await query.message.delete()
-    #     try:
-    #         await query.message.reply_to_message.delete()
-    #     except:
-    #         pass
+    lazyData =  query.data
     if query.data == "close_data":
+        try:
+            user = query.message.reply_to_message.from_user.id
+        except:
+            user = query.from_user.id
+        if int(user) != 0 and query.from_user.id != int(user):
+            return await query.answer(script.NT_ALRT_TXT, show_alert=True)
+        # await query.answer("ᴛʜᴀɴᴋs ꜰᴏʀ ᴄʟᴏsᴇ 🙈")
         await query.message.delete()
+        try:
+            await query.message.reply_to_message.delete()
+        except:
+            pass
+    
 
     elif query.data == "pages":
         await query.answer("ᴛʜɪs ɪs ᴘᴀɢᴇs ʙᴜᴛᴛᴏɴ 😅")
@@ -847,8 +846,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
 # ////////////////////////////////////////////////
 
-    elif query.data.startswith("notify_user_not_avail"):
-        _, user_id, movie = data.split(":")
+    elif lazyData.startswith("notify_user_not_avail"):
+        _, user_id, movie = lazyData.split(":")
         # Send message to user
         try:
             btn = [[
@@ -872,8 +871,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await query.answer(f"☣something went wrong sweetheart\n\n{e}", show_alert=True)
             return
         
-    elif query.data.startswith("notify_user_alrupl"):
-        _, user_id, movie = data.split(":")
+    elif lazyData.startswith("notify_user_alrupl"):
+        _, user_id, movie = lazyData.split(":")
         # Send message to user
         try:
             btn = [[
@@ -897,8 +896,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await query.answer(f"☣something went wrong baby\n\n{e}", show_alert=True)
             return
         
-    elif query.data.startswith("notify_userupl"):
-        _, user_id, movie = data.split(":")
+    elif lazyData.startswith("notify_userupl"):
+        _, user_id, movie = lazyData.split(":")
         # Send message to user
         try:
             btn = [[
@@ -922,8 +921,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await query.answer(f"☣something went wrong sona\n\n{e}", show_alert=True)
             return
         
-    elif query.data.startswith("notify_user_req_rejected"):
-        _, user_id, movie = data.split(":")
+    elif lazyData.startswith("notify_user_req_rejected"):
+        _, user_id, movie = lazyData.split(":")
         # Send message to user
         try:
             btn = [[
@@ -947,8 +946,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await query.answer(f"☣something went wrong darling\n\n{e}", show_alert=True)
             return
         
-    elif query.data.startswith("notify_user_spelling_error"):
-        _, user_id, movie = data.split(":")
+    elif lazyData.startswith("notify_user_spelling_error"):
+        _, user_id, movie = lazyData.split(":")
         # Send message to user
         try:
             btn = [[
@@ -972,8 +971,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await query.answer(f"☣something went wrong sweetie\n\n{e}", show_alert=True)
             return
     
-    elif query.data.startswith("notify_user_custom"):
-        _, user_id, movie = data.split(":")
+    elif lazyData.startswith("notify_user_custom"):
+        _, user_id, movie = lazyData.split(":")
         # Send message to user
         try:
             btn = [[
@@ -997,8 +996,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await query.answer(f"☣something went wrong sweetie\n\n{e}", show_alert=True)
             return
     
-    elif query.data.startswith("notify_user_req_rcvd"):
-        _, user_id, movie = data.split(":")
+    elif lazyData.startswith("notify_user_req_rcvd"):
+        _, user_id, movie = lazyData.split(":")
         # Send message to user
         try:
             btn = [[
