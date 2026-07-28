@@ -34,8 +34,8 @@ pyshorteners
 pyromod
 colorama
 fuzzywuzzy
-lxml>=5.1.0
-Levenshtein>=0.25.0
+lxml==5.2.1 --only-binary lxml
+
 
 
 
