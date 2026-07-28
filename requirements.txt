@@ -34,7 +34,9 @@ pyshorteners
 pyromod
 colorama
 fuzzywuzzy
-Levenshtein==0.24.0
+lxml>=5.1.0
+Levenshtein>=0.25.0
+
 
 
 # Git-based Packages
